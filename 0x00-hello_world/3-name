@@ -1,0 +1,2 @@
+#!/bin/bash
+gcc $qCFILE -o cisfun
