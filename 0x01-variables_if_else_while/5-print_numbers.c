@@ -15,7 +15,8 @@ if (n == 9)
 {
 printf("%d\n", n);
 }
-else printf("%d", n);
+else
+printf("%d", n);
 }
 
 return (0);
