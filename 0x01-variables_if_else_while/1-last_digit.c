@@ -1,15 +1,19 @@
 #include <stdlib.h>
 #include <time.h>
-/* more headers goes there */
+#include <stdio.h>
 
-/* betty style doc for function main goes there */
+/**
+ * main - Entry point
+ *
+ * Return: Always 1 (Error)
+ */
 int main(void)
 {
 	int n;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	l_digit = n % 10;
+	int l_digit = n % 10;
 	printf("Last digit of %d is %d\n", n, l_digit);
 	return (0);
 }
