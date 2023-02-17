@@ -3,15 +3,15 @@
 /**
  * main - Entry point
  *
- * Return: Always 1 (Error)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
     char c;
 
-    while (c = "a" && c <= "z")
-    putchar(c);
-    c++;
-    
+    for(c = 'a'; c < 'z'; c++)
+        putchar(c);
+        putchar('\n');
+        
     return (0);
 }
