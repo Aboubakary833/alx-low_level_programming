@@ -13,9 +13,9 @@ for (c_in_lc = 'a'; c_in_lc <= 'z'; c_in_lc++)
 {
 putchar(c_in_lc);
 }
-for(c_in_uc = 'A'; c_in_uc <= 'Z'; c_in_uc++)
+for (c_in_uc = 'A'; c_in_uc <= 'Z'; c_in_uc++)
 {
-    putchar(c_in_uc);
+putchar(c_in_uc);
 }
 putchar('\n');
 
