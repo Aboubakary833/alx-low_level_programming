@@ -11,7 +11,11 @@ int n;
 
 for (n = 0; n <= 9; n++)
 {
-printf("%d", n);
+if (n == 9)
+{
+printf("%d\n", n);
+}
+else printf("%d", n);
 }
 
 return (0);
