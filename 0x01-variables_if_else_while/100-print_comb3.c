@@ -7,26 +7,22 @@
  */
 int main(void)
 {
-int n, m;
+    int n, m;
 
-for (n = 1; n <= 9; n++)
-{
-for (m = 0; m < 9; m++)
-{
-if(m != n)
-{
-putchar(m + '0');
-putchar(n + '0');
+    for (n = 0; n <= 9; n++)
+    {
+    for(m = n + 1; m <= 9; m++)
+    {
+    putchar(n + '0');
+    putchar(m + '0');
+    if(n != 8)
+    {
+    putchar(',');
+    putchar(' ');
+    }
+    }
+    }
+    putchar('\n');
 
-if(m != 8)
-{
-putchar(',');
-putchar(' ');
-}
-}
-}
-}
-putchar('\n');
-
-return (0);
+    return (0);
 }
