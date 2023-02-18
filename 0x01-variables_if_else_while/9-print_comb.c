@@ -16,4 +16,6 @@ if (n != 9)
 putchar(',');
 putchar(' ');
 }
+
+return (0);
 }
