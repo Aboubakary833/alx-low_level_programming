@@ -3,10 +3,11 @@
 
 /**
  * Check if a character is in lower case
- * @param int c - Character to check case
- * @return 1 or 0
+ * @c: Character to check case
+ * Return: On success 1
+ * On error, 0
 */
 int _islower(int c)
 {
-return islower(c) ? (1) : (0);
+return (islower(c) ? 1 : 0);
 }
