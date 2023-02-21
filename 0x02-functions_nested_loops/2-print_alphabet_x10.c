@@ -1,5 +1,9 @@
 #include "main.h"
 
+/**
+ * Print ten time alphabet
+ * Return void
+*/
 void print_alphabet_x10(void)
 {
 int n;
