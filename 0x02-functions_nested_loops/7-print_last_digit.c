@@ -5,12 +5,12 @@
  * print_last_digit - print last digit of n
  * @n: The number
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: On success the result.
+ * On error, 1 is returned, and errno is set appropriately.
  */
 int print_last_digit(int n)
 {
 int r = n % 10;
-_putchar(r);
+_putchar('0' + r);
 return (r);
 }
