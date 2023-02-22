@@ -15,15 +15,7 @@ if (n <= 98)
 {
 for (; n <= 98; n++)
 {
-if (n < 10)
-{
-_putchar(n + '0');
-}
-else
-{
-_putchar((n / 10) + '0');
-_putchar((n % 10) + '0');
-}
+printf("%d", n);
 if (n != 98)
 {
 _putchar(',');
