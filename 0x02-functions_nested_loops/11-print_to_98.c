@@ -21,7 +21,10 @@ if (n != 98)
 putchar(',');
 putchar(' ');
 }
+else
+{
 putchar('\n');
+}
 }
 }
 else
