@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
@@ -14,7 +15,7 @@ int main(void)
     {
         if ((prev + cur) == sum)
         {
-            printf(", %d", sum);
+            printf(", %d", abs(sum));
             prev = cur;
             cur = sum;
             if (count == 50)
