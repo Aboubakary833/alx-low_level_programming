@@ -17,6 +17,10 @@ for (m = 0; m < 10; m++)
 {
 if ((m * n) < 10)
 {
+if ((m * n) != 0)
+{
+_putchar(' ');
+}
 _putchar((m * n) + '0');
 }
 else
@@ -27,8 +31,7 @@ _putchar((m * n) % 10 + '0');
 if (m < 9)
 {
 _putchar(',');
-_putchar(' ');
-_putchar(' ');
+_putchar(' '); 
 }
 }
 _putchar('\n');
