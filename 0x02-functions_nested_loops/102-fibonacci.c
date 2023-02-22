@@ -3,19 +3,19 @@
 
 int main(void)
 {
-    int prev = 1;
-    int cur = 2;
-    int sum = 3;
-    int count = 4;
+    long int prev = 1;
+    long int cur = 2;
+    long int sum = 3;
+    int count = 3;
 
-    printf("%d", prev);
-    printf(", %d", cur);
+    printf("%ld", prev);
+    printf(", %ld", cur);
 
     while (count < 51)
     {
         if ((prev + cur) == sum)
         {
-            printf(", %d", abs(sum));
+            printf(", %ld", sum);
             prev = cur;
             cur = sum;
             if (count == 50)
