@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * _isalpha - check if c is a letter
- * @c: The value to check
+ * print_to_98 - printf from n to 98
+ * @n: The value
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
