@@ -15,25 +15,24 @@ if (n <= 98)
 {
 for (; n <= 98; n++)
 {
-printf("%d", n);
-if (n != 98)
-{
-_putchar(',');
-_putchar(' ');
-}
-}
-}
-else
-{
-for (; n >= 98; n--)
-{
-printf("%d", n);
-if (n != 98)
-{
-_putchar(',');
-_putchar(' ');
-}
-}
-}
-_putchar('\n');
+ printf("%d", n);
+ if (n != 98)
+ {
+ putchar(',');
+ putchar(' ');
+ }
+ }
+ }
+ else
+ {
+ for (; n >= 98; n--)
+ {
+ printf("%d", n);
+ if (n != 98)
+ {
+ putchar(',');
+ putchar(' ');
+ }
+ }
+ }
 }
