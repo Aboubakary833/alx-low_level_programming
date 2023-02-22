@@ -30,7 +30,7 @@ _putchar((m * n) % 10 + '0');
 if (m < 9)
 {
 _putchar(',');
-_putchar(' '); 
+_putchar(' ');
 }
 }
 _putchar('\n');
