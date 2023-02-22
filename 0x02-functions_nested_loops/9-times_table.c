@@ -2,8 +2,7 @@
 #include "main.h"
 
 /**
- * _isalpha - check if c is a letter
- * @c: The value to check
+ * times_table - printf table
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
