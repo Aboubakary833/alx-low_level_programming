@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+/**
+ * print_times_table - print n time table
+ * @n: The integer
+ * Return: Print the table.
+ * On error, do nothing.
+ */
 void print_times_table(int n)
 {
 int m, o;
