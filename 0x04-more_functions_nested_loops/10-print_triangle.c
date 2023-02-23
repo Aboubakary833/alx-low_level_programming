@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * print_triangle - Print a triangle
+ * @size: The number of time to print
+ * Return: void
+*/
 void print_triangle(int size)
 {
 if (size > 0)
