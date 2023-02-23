@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * _isupper - Check if a character is a digit
+ * _isdigit - Check if a character is a digit
  * @c: Element to check
  * Return: On success 1.
  * Else return 0.
