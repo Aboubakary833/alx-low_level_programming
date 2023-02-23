@@ -13,7 +13,10 @@ if (n > 0)
 {
 for (; n > 0; n--)
 {
-
+for (o = 0; o <= m - n; o++)
+{
+_putchar(' ');
+}
 _putchar('\\');
 _putchar('\n');
 }
