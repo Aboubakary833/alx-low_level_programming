@@ -12,7 +12,11 @@ if (n > 0)
 for (; n > 0; n--)
 {
 _putchar('\\');
-}
-}
 _putchar('\n');
+}
+}
+else
+{
+_putchar('\n');
+}
 }
