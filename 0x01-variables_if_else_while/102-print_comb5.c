@@ -7,30 +7,25 @@
  */
 int main(void)
 {
-    int n, m, o, p;
+    int n, m;
 
-    for (n = 0; n <= 9; n++)
+    for (n = 0; n <= 99; n++)
     {
-        for (m = 0; m <= 9; m++)
+        for (m = 0; m <= 99; m++)
         {
-            for (o = 0; o <= 9; o++)
+            putchar(n / 10 + '0');
+            putchar(m % 10 + '0');
+            putchar(' ');
+            putchar(m / 10 + '0');
+            putchar(n % 10 + '0');
+            if((n + '0') + (m + '0') != "9899")
             {
-                for (p = 1; p <= 9; p++)
-                {
-                    putchar(n + '0');
-                    putchar(m + '0');
-                    putchar(' ');
-                    putchar(o + '0');
-                    putchar(p + '0');
-                    if (n != p)
-                    {
-                        putchar(',');
-                        putchar(' ');
-                    }
-                }
+                putchar(',');
+                putchar(' ');
             }
         }
     }
+
     putchar('\n');
 
     return (0);
