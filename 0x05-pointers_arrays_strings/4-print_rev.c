@@ -11,9 +11,10 @@ void print_rev(char *s)
     int cc = c;
     int i = 0;
     char r[c];
-    for (; i < c, (cc - 1) >= 0; i++, cc--)
+    for (; i < c; i++)
     {
-    r[i] = s[cc];
+    r[i] = s[cc - 1];
+    cc--;
     }
     _puts(r);
 }
