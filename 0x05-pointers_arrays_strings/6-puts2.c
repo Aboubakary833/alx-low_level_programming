@@ -2,6 +2,7 @@
 
 /**
  * puts2 - Print every odd char of a string
+ * @str: The string
  * Return: void
 */
 void puts2(char *str)
