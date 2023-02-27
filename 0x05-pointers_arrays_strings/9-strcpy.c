@@ -13,5 +13,5 @@ for (; src[n] != 0; n++)
 *(dest + n) = src[n];
 }
 *(dest + n) = '\0';
-return dest;
+return (dest);
 }
