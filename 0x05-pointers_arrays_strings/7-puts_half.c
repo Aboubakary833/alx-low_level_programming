@@ -8,7 +8,7 @@
 */
 void puts_half(char *str)
 {
-int l = strlen(str), n = l / 2;
+int l = strlen(str), n = (l - 1) / 2;
 for (; n < l; n++)
 {
 _putchar(str[n]);
