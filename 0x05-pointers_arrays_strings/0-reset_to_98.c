@@ -1,6 +1,5 @@
-
 /**
- * reset_to_98
+ * reset_to_98 - Reset an integer to 98
  * @n: The number to reset pointer
  * Return: void
 */
