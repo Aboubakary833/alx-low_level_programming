@@ -7,9 +7,6 @@
 */
 void print_rev(char *s)
 {
-    int c = strlen(s);
-    int cc = c;
-    int i = 0;
     char *r;
     
     _puts(r);
