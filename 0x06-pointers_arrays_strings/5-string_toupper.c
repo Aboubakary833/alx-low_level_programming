@@ -2,7 +2,7 @@
 #include <string.h>
 
 /**
- * Transform a string to uppercase
+ * string_toupper - Transform a string to uppercase
  * @str: String to transform
  * Return: *char
 */
@@ -14,5 +14,5 @@ for (; c < l; c++)
 {
 *(r + c) = toupper(str[c]);
 }
-return r;
+return (r);
 }
