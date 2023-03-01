@@ -8,7 +8,7 @@
 char *leet(char *str)
 {
 char *letters = "aAeEoOtTlL";
-int digits[] = {4, 4, 3, 3, 0, 0, 7, 7};
+int digits[] = {4, 4, 3, 3, 0, 0, 7, 7, 1, 1};
 int c = 0, l = strlen(letters), rl, i;
 char *r;
 for (; str[c] != '\0'; c++)
