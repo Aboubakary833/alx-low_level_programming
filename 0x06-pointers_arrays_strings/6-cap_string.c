@@ -8,5 +8,14 @@
 */
 char *cap_string(char *str)
 {
-return (strupr(str));
+int l = strlen(str), c = 0, nc;
+for (; c < l; c++)
+{
+if (strchr(" \t\n,;.!\?\"\b(){}", str[c]))
+{
+nc = c + 1;
+*(str + nc) = toupper(str[nc]);
+}
+}
+return (str);
 }
