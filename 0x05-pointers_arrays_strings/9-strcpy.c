@@ -1,4 +1,3 @@
-
 /**
  * _strcpy - Copy a string to another string variable
  * @dest: Variable to copy to
