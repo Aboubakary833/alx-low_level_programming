@@ -13,8 +13,9 @@ int c = 0, l = strlen(letters), rl, i;
 char *r;
 for (; str[c] != '\0'; c++)
 {
-if ((r = strchr(letters, str[c])))
+if (strchr(letters, str[c]))
 {
+r = strchr(letters, str[c]);
 rl = strlen(r);
 i = l - rl;
 *(str + c) = (digits[i] + '0');
