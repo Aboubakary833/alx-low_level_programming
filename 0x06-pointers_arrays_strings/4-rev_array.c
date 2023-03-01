@@ -1,4 +1,3 @@
-#include <stdio.h>
 /**
  * reverse_array - Reverse int array content
  * @a: Array to reverse
