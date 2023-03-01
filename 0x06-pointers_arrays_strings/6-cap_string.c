@@ -11,7 +11,7 @@ char *cap_string(char *str)
 int l = strlen(str), c = 0, nc;
 for (; c < l; c++)
 {
-if (strchr(" \t\n,;.!\?\"\b(){}\v\f\r", str[c]))
+if (strchr("\t\n,;.!\?\"\b(){}\v \f\r", str[c]))
 {
 nc = c + 1;
 *(str + nc) = toupper(str[nc]);
