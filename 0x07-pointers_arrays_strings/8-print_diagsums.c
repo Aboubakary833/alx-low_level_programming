@@ -10,13 +10,14 @@ void print_diagsums(int *a, int size)
 {
 int s = (size * size), i, j;
 int firstTotal = 0, secondTotal = 0;
-for (i = 0; i < s; i += size)
+for (i = 0; i < s; i += (size + 1))
 {
-firstTotal += *(a + i);
+firstTotal += (*(a + i));
 }
-for (j = (s - 1); j >= 0; j -= size)
+
+for (j = (s - size); j >= 0; j -= (size - 1))
 {
-secondTotal += *( a + j);
+secondTotal += (*( a + j));
 }
 printf("%d, %d\n", firstTotal, secondTotal);
 }
