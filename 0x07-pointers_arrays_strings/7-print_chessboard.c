@@ -13,7 +13,7 @@ for (c = 0; c < 8; c++)
 for (cc = 0; cc < 8; cc++)
 {
 _putchar(a[c][cc]);
-if(cc == 7)
+if (cc == 7)
 {
 _putchar('\n');
 }
