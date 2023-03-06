@@ -17,7 +17,7 @@ firstTotal += (*(a + i));
 
 for (j = (s - size); j >= 0; j -= (size - 1))
 {
-secondTotal += (*( a + j));
+secondTotal += (*(a + j));
 }
 printf("%d, %d\n", firstTotal, secondTotal);
 }
