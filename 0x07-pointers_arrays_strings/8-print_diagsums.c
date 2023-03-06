@@ -18,5 +18,6 @@ for (j = (s - 1); j >= 0; j -= size)
 {
 secondTotal += *( a + j);
 }
+printf("%d, %d\n", firstTotal, secondTotal);
 }
 
