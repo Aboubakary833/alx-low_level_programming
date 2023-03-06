@@ -1,7 +1,7 @@
 #include <string.h>
 
 /**
- * _memset - Fill a memory area
+ * _memcpy - Fill a memory area
  * @dest: The destination
  * @src: The copy source
  * @n: The size
