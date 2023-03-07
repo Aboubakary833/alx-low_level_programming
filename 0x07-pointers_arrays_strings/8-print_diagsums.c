@@ -15,7 +15,7 @@ for (i = 0; i < s; i += (size + 1))
 firstTotal += (*(a + i));
 }
 
-for (j = (s - size); j >= 0; j -= (size - 1))
+for (j = (sizeof - 1); j < (s - 1); j += (size - 1))
 {
 secondTotal += (*(a + j));
 }
