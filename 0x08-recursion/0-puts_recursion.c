@@ -8,12 +8,16 @@
 */
 void _puts_recursion(char *s)
 {
-int l = strlen(s), n = 0;
-if (n < l)
+char substr[1000];
+int l = strlen(s);
+_putchar(s[0]);
+if (l > 0)
 {
-_putchar(s[n]);
-n++;
+strncpy(substr, s + 1, (l));
+_puts_recursion(substr);
 }
 else
+{
 _putchar('\n');
+}
 }
