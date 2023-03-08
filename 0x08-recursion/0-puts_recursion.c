@@ -13,7 +13,7 @@ int l = strlen(s);
 _putchar(s[0]);
 if (l > 0)
 {
-strncpy(substr, s + 1, (l));
+strncpy(substr, s + 1, (l - 1));
 _puts_recursion(substr);
 }
 else
