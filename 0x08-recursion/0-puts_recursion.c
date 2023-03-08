@@ -12,7 +12,7 @@ char substr[1000];
 int l = strlen(s);
 if (l > 0)
 {
-_putchar(s[0] + '0');
+_putchar(s[0]);
 strncpy(substr, s + 1, (l + 1));
 _puts_recursion(substr);
 }
