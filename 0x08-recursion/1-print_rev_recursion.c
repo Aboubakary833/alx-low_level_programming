@@ -8,12 +8,9 @@
 */
 void _print_rev_recursion(char *s)
 {
-char substr[1000];
-int l = strlen(s), pos = l - 1;
-if (pos >= 0)
+if (s[0] != '\0')
 {
-_putchar(s[pos]);
-strncpy(substr, s, (l - 1));
-_print_rev_recursion(substr);
+_print_rev_recursion(s + 1);
+_putchar(s[0]);
 }
 }
