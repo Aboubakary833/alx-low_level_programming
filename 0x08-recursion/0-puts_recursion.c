@@ -1,3 +1,4 @@
+#include <string.h>
 #include "main.h"
 
 /**
@@ -7,10 +8,12 @@
 */
 void _puts_recursion(char *s)
 {
-int c = 0;
-for (; s[c] != '\0'; c++)
+int l = strlen(s), n = 0;
+if (n < l)
 {
-_putchar(s[c]);
+_putchar(s[n]);
+n++;
 }
+else
 _putchar('\n');
 }
