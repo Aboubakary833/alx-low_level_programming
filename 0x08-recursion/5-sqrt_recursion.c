@@ -12,7 +12,7 @@ else
 {
 r += 1;
 if ((n % 2) != 0)
---n;
+++n;
 r += _sqrt_recursion(n / 2);
 }
 return (r);
