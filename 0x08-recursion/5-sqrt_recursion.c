@@ -1,19 +1,29 @@
 /**
+ * handle_sqrt - Handle result
+ * @i: The number
+ * @j: The int to check with
+ * Return: int
+*/
+int handle_sqrt(int i, int j)
+{
+if (i == j)
+return (-1);
+else if (i == (j * j))
+{
+return (j);
+}
+j++;
+return (handle_sqrt(i, j));
+}
+
+/**
  * _sqrt_recursion - Return sqrt of a int
  * @n: The int
  * Return: int
 */
 int _sqrt_recursion(int n)
 {
-int r = -1;
 if (n < 0)
-return (r);
-else
-{
-r += 1;
-if ((n % 2) != 0)
-++n;
-r += _sqrt_recursion(n / 2);
-}
-return (r);
+return (-1);
+return (handle_sqrt(n, 1));
 }
