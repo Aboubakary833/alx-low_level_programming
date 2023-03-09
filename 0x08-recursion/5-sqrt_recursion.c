@@ -10,8 +10,10 @@ if (n < 0)
 return (r);
 else
 {
-r = 0;
-r += _sqrt_recursion(n - 1);
+r += 1;
+if ((n % 2) != 0)
+--n;
+r += _sqrt_recursion(n / 2);
 }
 return (r);
 }
