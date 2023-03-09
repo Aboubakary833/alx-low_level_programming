@@ -11,7 +11,9 @@ return (r);
 else
 {
 r += 1;
-_sqrt_recursion(n / 2);
+if ((n % 2) != 0)
+++n;
+r += _sqrt_recursion(n / 2);
 }
 return (r);
 }
