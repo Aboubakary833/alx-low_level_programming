@@ -1,5 +1,19 @@
 #include <string.h>
 
+int handlePal(int start, int end, char *str)
+{
+if (str[start] != str[end])
+return (0);
+else if (str[start] == str[end])
+{
+start++;
+end--;
+return (handlePal(start, end, str));
+}
+else
+return (1);
+}
+
 /**
  * is_palindrome - Check if a string is a palindrome
  * @s: The string
@@ -7,9 +21,5 @@
 */
 int is_palindrome(char *s)
 {
-if (s == "")
-return (1);
-char *cp = s;
-strrev(cp);
-return (cp == s ? 1 : 0);
+return (handlePal(0, strlen(s) - 1, s));
 }
