@@ -16,6 +16,8 @@ if (argc == 1)
 {
 printf("%d\n", 0);
 }
+else
+{
 for (i = 1; i < argc; i++)
 {
 l = strlen(argv[i]);
@@ -30,5 +32,6 @@ return (1);
 result += atoi(argv[i]);
 }
 printf("%d\n", result);
+}
 return (0);
 }
