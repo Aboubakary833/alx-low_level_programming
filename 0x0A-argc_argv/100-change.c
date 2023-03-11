@@ -15,4 +15,8 @@ if (argc != 2)
 printf("Error\n");
 return (1);
 }
+else if (argc < 2)
+{
+printf("%d\n", 0);
+}
 }
