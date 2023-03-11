@@ -2,17 +2,46 @@
 #include <stdlib.h>
 
 /**
-* calcul - Calculate
-* @i: The integer
-* Return: int
+ * getCoinsNumber - Get the coin
+ * @n: The cent
+ * Return: int
 */
-int calcul(int i)
+int getCoinsNumber(int n)
 {
-if (i > 25)
+int r = 0;
+if (n > 25)
 {
-d
-d
+r += n / 25;
+r += getCoinsNumber((n % 25));
+}
+else if ((n < 25) && (n > 10))
+{
+r += n / 10;
+r += getCoinsNumber((n % 10));
+}
+else if ((n < 10) && (n > 5))
+{
+r += n / 5;
+r += getCoinsNumber((n % 5));
+}
+else if ((n < 5) && (n > 2))
+{
+r += n / 2;
+r += getCoinsNumber((n % 2));
+}
+else if (
+n == 1 ||
+n == 2 ||
+n == 5 ||
+n == 10 ||
+n == 25
+)
+{
+r += 1;
+}
 
+return (r);
+}
 
 /**
  * main - Mutiply two int
@@ -22,7 +51,7 @@ d
  */
 int main(int argc, char *argv[])
 {
-int result = 0;
+int result;
 if (argc != 2)
 {
 printf("Error\n");
@@ -34,6 +63,8 @@ printf("%d\n", 0);
 }
 else
 {
-
+result = getCoinsNumber(atoi(argv[1]));
+printf("%d\n", result);
 }
+return (0);
 }
