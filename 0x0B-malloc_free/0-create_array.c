@@ -9,7 +9,7 @@
 char *create_array(unsigned int size, char c)
 {
 int i, c_size = size ? size : 0;
-char *s = malloc((c_size + 1) * sizeof(char));
+char *s = malloc(c_size * sizeof(char));
 if (c_size == 0 || s == NULL)
 return (NULL);
 else
