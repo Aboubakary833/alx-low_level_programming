@@ -13,7 +13,7 @@ int c = 0, size;
 if (str == NULL)
 return (NULL);
 size = strlen(str);
-str_cp = malloc(size *sizeof(char));
+str_cp = malloc((size + 1) *sizeof(char));
 for (; c < size; c++)
 {
 str_cp[c] = str[c];
