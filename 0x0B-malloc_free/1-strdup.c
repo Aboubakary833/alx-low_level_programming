@@ -14,14 +14,12 @@ if (str == NULL)
 return (NULL);
 size = strlen(str);
 str_cp = malloc((size + 1) * sizeof(char));
+if (str_cp == NULL)
+return (NULL);
 for (; c < size; c++)
 {
 str_cp[c] = str[c];
 }
 str_cp[c] = '\0';
-
-if (str_cp == NULL)
-return (NULL);
-else
 return (str_cp);
 }
