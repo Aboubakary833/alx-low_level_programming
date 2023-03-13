@@ -14,7 +14,7 @@ if (c_size == 0 || s == NULL)
 return (NULL);
 else
 {
-for (; i < c_size; i++)
+for (i = 0; i < c_size; i++)
 {
 s[i] = c;
 }
