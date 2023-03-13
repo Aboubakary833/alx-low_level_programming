@@ -20,5 +20,8 @@ str_cp[c] = str[c];
 }
 str_cp[c] = '\0';
 
-return (*str_cp);
+if (str_cp)
+return (str_cp);
+else
+return (NULL);
 }
