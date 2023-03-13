@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * _strdup - Duplicate a char pointer
@@ -8,11 +9,12 @@
 char *_strdup(char *str)
 {
 char *str_cp;
-int c = 0;
+int c = 0, size;
 if (str == NULL)
 return (NULL);
-str_cp = malloc(sizeof(str) * sizeof(char));
-for (; str[c] != '\0'; c++)
+size = strlen(str);
+str_cp = malloc(size * sizeof(char));
+for (; c < size; c++)
 str_cp[c] = str[c];
 str_cp[c] = '\0';
 
