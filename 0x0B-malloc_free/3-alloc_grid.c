@@ -15,7 +15,7 @@ grid = (int **) malloc(width * sizeof(int **));
 if (grid == NULL)
 return (NULL);
 for (i = 0; i < width; i++)
-grid[i] = malloc(height * sizeof(int *));
+grid[i] = malloc(height * sizeof(int));
 
 for (i = 0; i < width; i++)
 {
