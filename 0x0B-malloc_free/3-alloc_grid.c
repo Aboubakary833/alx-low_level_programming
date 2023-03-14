@@ -12,10 +12,17 @@ int **grid, i, j;
 if (width == 0 || height == 0)
 return (NULL);
 grid = (int **) malloc(width * sizeof(int **));
+free(grid);
 if (grid == NULL)
 return (NULL);
 for (i = 0; i < width; i++)
-grid[i] = malloc(height * sizeof(int));
+grid[i] = malloc(height * sizeof(int *));
+if (!grid[i])
+{
+for (j = 0; j < i; j++)
+{
+free(grid[i][j]);
+}
 
 for (i = 0; i < width; i++)
 {
