@@ -12,7 +12,7 @@ int **grid, size, i, j, *el_ptr;
 if (width == 0 || height == 0)
 return (NULL);
 size = (sizeof(int *) * width) + ((sizeof(int) * height) * width);
-grid = malloc(size);
+grid = (int **)malloc(size);
 el_ptr = (int *)(grid + 1);
 for (i = 0; i < width; i++)
 {
