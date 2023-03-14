@@ -14,9 +14,12 @@ return (NULL);
 size = (sizeof(int *) * width) + ((sizeof(int) * height) * width);
 grid = malloc(size);
 el_ptr = (int *)(grid + 1);
-for (i = 0; i <width; i++)
+for (i = 0; i < width; i++)
 {
 grid[i] = (el_ptr + height * i);
+}
+for (i = 0; i < width; i++)
+{
 for (j = 0; j < height; j++)
 grid[i][j] = 0;
 }
