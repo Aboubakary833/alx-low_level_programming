@@ -6,6 +6,7 @@
  * @s1: First string
  * @s2: Second string
  * @n: Size
+ * Return: char-pointer on Success or NULL
 */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
