@@ -15,4 +15,3 @@ exit(98);
 }
 return (ptr);
 }
-
