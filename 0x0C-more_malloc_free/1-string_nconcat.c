@@ -19,6 +19,10 @@ s2 = s2 == NULL ? "" : s2;
 
 if (size < 0)
 return (NULL);
+if (size >= _strlen_recursion(s2))
+{
+size = _strlen(s2);
+}
 length = size + _strlen_recursion(s1);
 str = (char *) malloc(length *sizeof(char *));
 if (str == NULL)
