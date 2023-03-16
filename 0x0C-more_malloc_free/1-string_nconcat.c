@@ -24,7 +24,7 @@ if (size >= _strlen_recursion(s2))
 size = _strlen_recursion(s2);
 }
 length = size + _strlen_recursion(s1) + 1;
-str = malloc(length *sizeof(char *));
+str = malloc(sizeof(char *) * length);
 if (str == NULL)
 return (NULL);
 for (i = 0; s1[i] != '\0'; i++)
