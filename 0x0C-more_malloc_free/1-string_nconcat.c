@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include "main.h"
 #include <string.h>
 
 /**
@@ -13,7 +12,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 int i, j, size, length;
 char *str;
-size = (int) n;
+size = n;
 
 s1 = s1 == NULL ? "" : s1;
 s2 = s2 == NULL ? "" : s2;
