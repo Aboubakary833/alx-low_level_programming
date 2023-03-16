@@ -31,6 +31,6 @@ for (i = 0; s1[i] != '\0'; i++)
 str[i] = s1[i];
 for (j = 0; j < size; j++)
 str[i + j] = s2[j];
-str[length - 1] = '\0';
+str[i + j] = '\0';
 return (str);
 }
