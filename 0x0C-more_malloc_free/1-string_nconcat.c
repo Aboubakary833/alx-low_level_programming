@@ -1,4 +1,3 @@
-#include <string.h>
 #include <stdlib.h>
 #include "main.h"
 
@@ -19,7 +18,7 @@ cp_2 = s2 == NULL ? "" : s2;
 
 if (size < 0)
 return (NULL);
-length = size + strlen(cp_1);
+length = size + _strlen_recursion(cp_1);
 str = (char *) malloc(length *sizeof(char *));
 if (str == NULL)
 return (NULL);
