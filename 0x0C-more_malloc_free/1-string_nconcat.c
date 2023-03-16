@@ -1,13 +1,28 @@
 #include <stdlib.h>
-#include "main.h"
 
 /**
- * string_nconcat - Concatenate two string
- * @s1: First string
- * @s2: Second string
- * @n: Size
- * Return: char-pointer on Success or NULL
-*/
+ * _strlen - Get the length of a string
+ * @string: The string
+ * Return: int on Success
+ */
+int _strlen(char *string)
+{
+int i = 0;
+while (string[i] != '\0')
+{
+i++;
+}
+
+return (i);
+}
+
+/**
+ * string_nconcat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * @n: number of bytes of s2 to concatenate
+ * Return: pointer to new string
+ */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 char *ptr;
@@ -25,11 +40,11 @@ if (num < 0)
 {
 return (NULL);
 }
-if (num >= _strlen_recursion(s2))
+if (num >= _strlen(s2))
 {
-num = _strlen_recursion(s2);
+num = _strlen(s2);
 }
-len = _strlen_recursion(s1) + num;
+len = _strlen(s1) + num;
 ptr = malloc(sizeof(*ptr) * len);
 if (ptr == NULL)
 {
@@ -45,21 +60,4 @@ ptr[i + j] = s2[j];
 }
 ptr[i + j] = '\0';
 return (ptr);
-}
-
-/**
- * _strlen_recursion - Return the length of a string
- * @s: The string
- * Return: int
-*/
-int _strlen_recursion(char *s)
-{
-int l = 0;
-if (s[0] != '\0')
-{
-l += 1;
-l += _strlen_recursion(s + 1);
-}
-
-return (l);
 }
