@@ -10,29 +10,41 @@
 */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-int i, j, size, length;
-char *str;
-size = (int) n;
-
-s1 = s1 == NULL ? "" : s1;
-s2 = s2 == NULL ? "" : s2;
-
-if (size < 0)
-return (NULL);
-if (size >= _strlen_recursion(s2))
+char *ptr;
+int num, len, i, j;
+num = n;
+if (s1 == NULL)
 {
-size = _strlen_recursion(s2);
+s1 = "";
 }
-length = size + _strlen_recursion(s1);
-str = (char *) malloc(length *sizeof(char *));
-if (str == NULL)
+if (s2 == NULL)
+{
+s2 = "";
+}
+if (num < 0)
+{
 return (NULL);
+}
+if (num >= _strlen(s2))
+{
+num = _strlen(s2);
+}
+len = _strlen(s1) + num;
+ptr = malloc(sizeof(*ptr) * len);
+if (ptr == NULL)
+{
+return (NULL);
+}
 for (i = 0; s1[i] != '\0'; i++)
-str[i] = s1[i];
-for (j = 0; j < size; j++)
-str[i + j] = s2[j];
-str[i + j] = '\0';
-return (str);
+{
+ptr[i] = s1[i];
+}
+for (j = 0; j < num; j++)
+{
+ptr[i + j] = s2[j];
+}
+ptr[i + j] = '\0';
+return (ptr);
 }
 
 /**
