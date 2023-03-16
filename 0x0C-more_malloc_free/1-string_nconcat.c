@@ -25,11 +25,11 @@ if (num < 0)
 {
 return (NULL);
 }
-if (num >= _strlen(s2))
+if (num >= _strlen_recursion(s2))
 {
-num = _strlen(s2);
+num = _strlen_recursion(s2);
 }
-len = _strlen(s1) + num;
+len = _strlen_recursion(s1) + num;
 ptr = malloc(sizeof(*ptr) * len);
 if (ptr == NULL)
 {
