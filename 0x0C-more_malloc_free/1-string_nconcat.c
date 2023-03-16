@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include "main.h"
 
 /**
  * string_nconcat - Concatenate two string
@@ -35,6 +34,11 @@ str[i + j] = '\0';
 return (str);
 }
 
+/**
+ * _strlen_recursion - Return the length of a string
+ * @s: The string
+ * Return: int
+*/
 /**
  * _strlen_recursion - Return the length of a string
  * @s: The string
