@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
+#include "main.h"
 
 /**
  * string_nconcat - Concatenate two string
@@ -19,7 +20,7 @@ cp_2 = s2 == NULL ? "" : s2;
 if (size < 0)
 return (NULL);
 length = size + strlen(cp_1);
-str = (char *) malloc(length * sizeof(char *));
+str = (char *) malloc(length *sizeof(char *));
 if (str == NULL)
 return (NULL);
 for (i = 0; cp_1[i] != '\0'; i++)
@@ -28,4 +29,21 @@ for (j = 0; j < size; j++)
 str[i + j] = cp_2[j];
 str[i + j] = '\0';
 return (str);
+}
+
+/**
+ * _strlen_recursion - Return the length of a string
+ * @s: The string
+ * Return: int
+*/
+int _strlen_recursion(char *s)
+{
+int l = 0;
+if (s[0] != '\0')
+{
+l += 1;
+l += _strlen_recursion(s + 1);
+}
+
+return (l);
 }
