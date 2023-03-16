@@ -14,7 +14,7 @@ char *str_ptr;
 void *ptr;
 if (nmemb == 0 || size == 0)
 return (NULL);
-ptr = (void *)malloc(nmemb * size);
+ptr = malloc(nmemb * size);
 if (ptr == NULL)
 {
 free(ptr);
