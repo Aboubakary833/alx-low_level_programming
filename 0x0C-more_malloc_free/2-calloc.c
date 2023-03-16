@@ -8,7 +8,10 @@
 */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-int *ptr;
+int i = 0;
+int total = nmemb;
+char *str_ptr;
+void *ptr;
 if (nmemb == 0 || size == 0)
 return (NULL);
 ptr = (void *)malloc(nmemb * size);
@@ -17,6 +20,8 @@ if (ptr == NULL)
 free(ptr);
 return (NULL);
 }
-else
+str_ptr = ptr;
+for (; i < total; i++)
+str_ptr[i] = '\0';
 return (ptr);
 }
