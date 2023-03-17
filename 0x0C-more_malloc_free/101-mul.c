@@ -24,7 +24,7 @@ printf("Error\n");
 exit(98);
 return (1);
 }
-result = atoi(num1 * num2);
+result = atoi(num1 *num2);
 printf("%d\n", result);
 return (0);
 }
