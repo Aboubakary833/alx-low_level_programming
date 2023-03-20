@@ -37,9 +37,9 @@ free(_new_dog->name);
 free(_new_dog);
 return (NULL);
 }
-for (i = 0; i < nameLen; i++)
+for (i = 0; i <= nameLen; i++)
 _new_dog->name[i] = name[i];
-for (i = 0; i < ownerLen; i++)
+for (i = 0; i <= ownerLen; i++)
 _new_dog->owner[i] = owner[i];
 _new_dog->age = age;
 return (_new_dog);
