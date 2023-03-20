@@ -10,7 +10,7 @@
 */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-dog_t *_new_dog;
+struct dog *_new_dog;
 int nameLen = 0, ownerLen = 0, i;
 while (name[nameLen] != '\0')
 nameLen++;
