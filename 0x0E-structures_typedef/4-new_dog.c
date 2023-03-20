@@ -16,7 +16,7 @@ while (name[nameLen] != '\0')
 nameLen++;
 while (owner[ownerLen] != '\0')
 ownerLen++;
-_new_dog = malloc(sizeof(struct dog));
+_new_dog = (dog_t *) malloc(sizeof(struct dog));
 if (_new_dog == NULL)
 {
 free(_new_dog);
