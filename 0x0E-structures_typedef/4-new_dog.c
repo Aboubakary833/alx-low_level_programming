@@ -21,7 +21,10 @@ if (_new_dog == NULL)
 free(_new_dog);
 _new_dog->name = malloc(nameLen + 1);
 if (_new_dog->name == NULL)
+{
 free(_new_dog->name);
+free(_new_dog);
+}
 _new_dog->owner = malloc(ownerLen + 1);
 if (_new_dog->owner == NULL)
 {
