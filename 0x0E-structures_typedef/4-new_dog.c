@@ -18,12 +18,16 @@ while (owner[ownerLen] != '\0')
 ownerLen++;
 _new_dog = malloc(sizeof(struct dog));
 if (_new_dog == NULL)
+{
 free(_new_dog);
+return (NULL);
+}
 _new_dog->name = malloc(nameLen + 1);
 if (_new_dog->name == NULL)
 {
 free(_new_dog->name);
 free(_new_dog);
+return (NULL);
 }
 _new_dog->owner = malloc(ownerLen + 1);
 if (_new_dog->owner == NULL)
@@ -31,6 +35,7 @@ if (_new_dog->owner == NULL)
 free(_new_dog->owner);
 free(_new_dog->name);
 free(_new_dog);
+return (NULL);
 }
 for (i = 0; i < nameLen; i++)
 _new_dog->name[i] = name[i];
