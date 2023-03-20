@@ -27,6 +27,7 @@ if (_new_dog->owner == NULL)
 {
 free(_new_dog->owner);
 free(_new_dog->name);
+free(_new_dog);
 }
 for (i = 0; i < nameLen; i++)
 _new_dog->name[i] = name[i];
