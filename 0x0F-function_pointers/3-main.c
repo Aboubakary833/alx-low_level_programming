@@ -23,7 +23,7 @@ secondInt = atoi(argv[3]);
 
 if ((*argv[2] == '/' || *argv[2] == '%') && secondInt == 0)
 {
-return (-1);
+return (1);
 }
 
 op_func = get_op_func(argv[2]);
