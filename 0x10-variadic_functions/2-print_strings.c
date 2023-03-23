@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * print_strings - Print all additional int arguments
+ * print_strings - Print all additional string arguments
  * @separator: The separator
  * @n: The total of additional arguments
  * Return: void on Success
