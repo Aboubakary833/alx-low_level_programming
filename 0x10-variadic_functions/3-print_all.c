@@ -39,6 +39,9 @@ if (str_var == NULL)
 str_var = "(nil)";
 printf("%s%s", sep, str_var);
 break;
+default:
+i++;
+continue;
 }
 
 sep = ", ";
