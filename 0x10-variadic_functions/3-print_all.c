@@ -10,38 +10,40 @@
 */
 void print_all(const char * const format, ...)
 {
-int i = 0, len = strlen(format);
-char *str_var;
+int i = 0;
+char *str_var, *sep = "";
 va_list opt_args;
 
 va_start(opt_args, format);
+if (format)
+{
 while (format[i] != '\0')
 {
 switch (format[i])
 {
 case 'c':
-printf("%c", va_arg(opt_args, int));
+printf("%s%c", sep, va_arg(opt_args, int));
 break;
 
 case 'i':
-printf("%d", va_arg(opt_args, int));
+printf("%s%d", sep, va_arg(opt_args, int));
 break;
 
 case 'f':
-printf("%f", va_arg(opt_args, double));
+printf("%s%f", sep, va_arg(opt_args, double));
 break;
 
 case 's':
 str_var = va_arg(opt_args, char *);
 if (str_var == NULL)
 str_var = "(nil)";
-printf("%s", str_var);
+printf("%s%s", sep, str_var);
 break;
 }
 
-if (i != len - 1)
-printf(", ");
+sep = ", ";
 i++;
+}
 }
 va_end(opt_args);
 
