@@ -6,6 +6,7 @@
 /**
  * print_all - Print all type of data
  * @format: The format
+ * Return: void on Success
 */
 void print_all(const char * const format, ...)
 {
