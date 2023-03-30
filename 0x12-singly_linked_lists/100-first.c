@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 void execBeforeMain(void)__attribute__((constructor));
-void execBeforeMain(void)__attribute__((destructor));
 
 /**
  * execBeforeMain - check the code
