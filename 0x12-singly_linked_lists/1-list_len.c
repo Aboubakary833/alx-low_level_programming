@@ -15,6 +15,6 @@ if (h->next != NULL)
 {
 i += list_len(h->next);
 }
-return ((size_t)i);
 }
+return ((size_t)i);
 }
