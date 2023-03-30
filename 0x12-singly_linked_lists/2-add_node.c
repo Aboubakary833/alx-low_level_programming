@@ -18,7 +18,7 @@ return (NULL);
 }
 
 new_node->str = strdup(str);
-new_node->len = strlen(new_node->str);
+new_node->len = strlen(str);
 new_node->next = (*head);
 (*head) = new_node;
 return (*head);
