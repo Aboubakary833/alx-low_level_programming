@@ -14,9 +14,9 @@ while (head)
 if (head->next)
 {
 next = head->next;
+}
 free(head->str);
 free(head);
 head = next;
-}
 }
 }
