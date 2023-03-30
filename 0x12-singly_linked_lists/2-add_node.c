@@ -13,6 +13,7 @@ list_t *add_node(list_t **head, const char *str)
 list_t *new_node = (list_t *)malloc(sizeof(struct list_s));
 if (new_node == NULL)
 {
+free(new_node);
 return (NULL);
 }
 
