@@ -13,6 +13,6 @@ if ((*head) != NULL)
 {
 	next = (*head)->next;
 	free(*head);
-	free_listint2(next);
+	free_listint2(&next);
 }
 }
