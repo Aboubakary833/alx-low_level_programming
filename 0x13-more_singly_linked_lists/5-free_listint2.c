@@ -15,4 +15,5 @@ while ((*head) != NULL)
 	free(*head);
 	(*head) = next;
 }
+head = NULL;
 }
