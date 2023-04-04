@@ -27,11 +27,11 @@ if (index == 0)
 
 for (i = 0; i < (index - 1); i++)
 {
-	if (cp->next != NULL)
+	if (cp->next == NULL)
 	{
-		cp = cp->next;
+		return (-1);
 	}
-	return (-1);
+	cp = cp->next;
 }
 cur = cp->next;
 cp->next = cur->next;
