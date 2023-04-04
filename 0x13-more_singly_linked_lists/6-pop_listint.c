@@ -14,9 +14,9 @@ if (head == NULL)
 {
 	return (0);
 }
-n = (*head)->n;
 current = (*head);
 (*head) = current->next;
+n = current->n;
 free(current);
 return (n);
 }
