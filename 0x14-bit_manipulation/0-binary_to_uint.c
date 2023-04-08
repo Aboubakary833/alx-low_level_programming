@@ -1,4 +1,3 @@
-#include <string.h>
 #include "main.h"
 
 /**
@@ -8,35 +7,20 @@
 */
 unsigned int binary_to_uint(const char *b)
 {
-int l = (strlen(b) - 1);
 int multiplicator = 1;
 int i;
 unsigned int result = 0;
 if (b == NULL)
 return (0);
-for (; l >= 0; l--, multiplicator *= 2)
+for (i = 0; b[i]; i++, multiplicator *= 2)
 {
-	if (b[l] < '0' || b[l] > '1')
+	if (b[i] < '0' || b[i] > '1')
 	{
 	result = 0;
 	break;
 	}
-	i = b[l] - '0';
-	result += (multiplicator * i);
+	result = 2 * result + b[i] - '0';
 }
 
 return (result);
-}
-
-/**
- * bit_length - Get the length of the string
- * @b: The string representation of the binary number
- * Return: The length
-*/
-int bit_length(const char *b)
-{
-int c = 0;
-while (b[c] != '\0')
-c++;
-return (c);
 }
