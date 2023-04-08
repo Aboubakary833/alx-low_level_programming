@@ -16,13 +16,13 @@ if (b == NULL)
 return (0);
 for (; l >= 0; l--, multiplicator *= 2)
 {
-	if (b[l] == '0' || b[l] == '1')
+	if (b[l] < '0' || b[l] > '1')
 	{
+	result = 0;
+	break;
+	}
 	i = b[l] - '0';
 	result += (multiplicator * i);
-	}
-	else
-	return (0);
 }
 
 return (result);
