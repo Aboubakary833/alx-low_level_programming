@@ -1,6 +1,3 @@
-#include "main.h"
-#include <stdlib.h>
-
 /**
  * get_bit - Get bit at a given index of number's binary rep
  * @n: The number
@@ -9,16 +6,16 @@
 */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	int result = -1;
-	while (n)
+int result = -1;
+while (n)
+{
+	if (index == 0)
 	{
-		if (index == 0)
-		{
-			result = (n & 1);
-			break;
-		}
-		n >>= 1;
-		index--;
+		result = (n & 1);
+		break;
 	}
-	return (result);
+	n >>= 1;
+	index--;
+}
+return (result);
 }
