@@ -1,3 +1,4 @@
+#include <string.h>
 #include "main.h"
 
 /**
@@ -7,7 +8,7 @@
 */
 unsigned int binary_to_uint(const char *b)
 {
-int l = (bit_length(b) - 1);
+int l = (strlen(b) - 1);
 int multiplicator = 1;
 int i;
 unsigned int result = 0;
