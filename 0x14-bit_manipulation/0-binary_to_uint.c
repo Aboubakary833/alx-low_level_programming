@@ -22,10 +22,7 @@ for (; l >= 0; l--, multiplicator *= 2)
 	result += (multiplicator * i);
 	}
 	else
-	{
-		result = 0;
-		break;
-	}
+	return (0);
 }
 
 return (result);
