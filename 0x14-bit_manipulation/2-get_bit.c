@@ -3,23 +3,12 @@
  * @n: The number
  * @index: Index of the bit
  * Return: the bit or -1
-*/
+ */
 int get_bit(unsigned long int n, unsigned int index)
 {
-int result = -1;
-if (index >= (sizeof(unsigned long int) * 8))
-{
-return (-1);
-}
-while (n)
-{
-	if (index == 0)
+	if (index >= sizeof(unsigned long int) * 8)
 	{
-		result = (n & 1);
-		break;
+		return (-1);
 	}
-	n >>= 1;
-	index--;
-}
-return (result);
+	return (n >> index & 1);
 }
