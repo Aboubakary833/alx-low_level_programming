@@ -13,24 +13,21 @@ ssize_t read_textfile(const char *filename, size_t letters)
 int fd;
 char *buffer;
 ssize_t readCount, totalCount;
-buffer = malloc(sizeof(char) * letters);
-if (buffer == NULL)
-	return (0);
 
 if (filename == NULL)
 	return (0);
 
 fd = open(filename, O_RDONLY);
-
 if (fd == -1)
 	return (0);
 
-readCount = read(fd, buffer, letters);
-
-if (readCount == -1)
+buffer = malloc(sizeof(char) * letters);
+if (buffer == NULL)
 	return (0);
 
-*(buffer + (int)(sizeof(buffer))) = '\n';
+readCount = read(fd, buffer, letters);
+if (readCount == -1)
+	return (0);
 totalCount = write(STDOUT_FILENO, buffer, letters);
 
 if (totalCount == -1 || totalCount < (ssize_t)letters)
