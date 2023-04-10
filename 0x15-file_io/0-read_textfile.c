@@ -13,7 +13,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 int fd;
 char *buffer;
 ssize_t readCount, totalCount;
-buffer = malloc(letters);
+buffer = malloc(sizeof(char) * letters);
 if (buffer == NULL)
 	return (0);
 
