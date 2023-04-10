@@ -30,7 +30,7 @@ if (readCount == -1)
 	return (0);
 totalCount = write(STDOUT_FILENO, buffer, letters);
 
-if (totalCount == -1 || totalCount < (ssize_t)letters)
+if (totalCount == -1)
 	return (0);
 
 free(buffer);
