@@ -27,7 +27,7 @@ if (buffer == NULL)
 
 readCount = read(fd, buffer, letters);
 totalCount = write(STDOUT_FILENO, buffer, letters);
-if (readCount == -1 || totalCount == -1 || letters > totalCount)
+if (readCount == -1 || totalCount == -1)
 	return (0);
 
 free(buffer);
