@@ -26,15 +26,12 @@ if (buffer == NULL)
 	return (0);
 
 readCount = read(fd, buffer, letters);
-if (readCount == -1)
-	return (0);
 totalCount = write(STDOUT_FILENO, buffer, letters);
-
-if (totalCount == -1)
+if (readCount == -1 || totalCount == -1)
 	return (0);
 
 free(buffer);
 close(fd);
 
-return (readCount);
+return (totalCount);
 }
