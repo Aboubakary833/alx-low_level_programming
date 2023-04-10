@@ -30,6 +30,7 @@ readCount = read(fd, buffer, letters);
 if (readCount == -1)
 	return (0);
 
+*(buffer + (int)(sizeof(buffer))) = '\n';
 totalCount = write(STDOUT_FILENO, buffer, letters);
 
 if (totalCount == -1)
