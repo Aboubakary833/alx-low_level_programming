@@ -36,5 +36,8 @@ totalCount = write(STDOUT_FILENO, buffer, letters);
 if (totalCount == -1 || totalCount < (ssize_t)letters)
 	return (0);
 
+free(buffer);
+close(fd);
+
 return (readCount);
 }
