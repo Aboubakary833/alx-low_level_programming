@@ -51,7 +51,6 @@ if (write_count == -1)
 	exit(99);
 }
 close_fd(f_fd);
-close_fd(s_fd);
 return (0);
 }
 
