@@ -16,7 +16,7 @@ int f_fd, s_fd, char_count = 0, read_count, write_count;
 char *from, *to, *buffer;
 if (argc != 3)
 {
-	dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n");
+	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 	exit(97);
 }
 from = argv[1];
@@ -26,17 +26,17 @@ f_fd = open(from, O_RDONLY);
 s_fd = open(to, O_RDWR | O_TRUNC);
 read_count = read(f_fd, buffer, 1024);
 if (s_fd == -1)
-	s_fd = open(to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
+	s_fd = open(to, O_WRONLY | O_TRUNC | O_CREAT, 664);
 if (f_fd == -1 || read_count == -1)
 {
 	free(buffer);
-	dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", from);
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
 	exit(98);
 }
 else if (s_fd == -1)
 {
 	free(buffer);
-	dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", to);
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
 	exit(99);
 }
 while (buffer[char_count] != '\0')
@@ -45,10 +45,11 @@ write_count = write(s_fd, buffer, char_count);
 if (write_count == -1 || read_count != write_count)
 {
 	free(buffer);
-	dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", to);
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
 	exit(99);
 }
 close_fd(f_fd);
+close_fd(s_fd);
 return (0);
 }
 
@@ -62,7 +63,7 @@ void close_fd(int f_fd)
 int fd_close_status = close(f_fd);
 if (fd_close_status == -1)
 {
-	dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", f_fd);
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f_fd);
 	exit(100);
 }
 }
@@ -77,7 +78,7 @@ char *create_buffer(char *filename)
 char *buffer = malloc(sizeof(char) * 1024);
 if (buffer == NULL)
 {
-	dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", filename);
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 	exit(98);
 }
 return (buffer);
