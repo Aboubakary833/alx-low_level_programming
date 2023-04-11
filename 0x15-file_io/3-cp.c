@@ -26,7 +26,7 @@ f_fd = open(from, O_RDONLY);
 s_fd = open(to, O_RDWR | O_TRUNC);
 read_count = read(f_fd, buffer, 1024);
 if (s_fd == -1)
-	s_fd = open(to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
+	s_fd = creat(to, 0664);
 if (f_fd == -1 || read_count == -1)
 {
 	free(buffer);
