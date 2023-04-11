@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/stat.h>
 #include "main.h"
 
 /**
@@ -23,7 +24,7 @@ from = argv[1];
 to = argv[2];
 buffer = create_buffer(from);
 f_fd = open(from, O_RDONLY);
-s_fd = open(to, O_WRONLY | O_TRUNC);
+s_fd = open(to, O_WRONLY | O_TRUNC | O_CREAT);
 read_count = read(f_fd, buffer, 1024);
 if (s_fd == -1)
 	s_fd = creat(to, 0664);
@@ -39,6 +40,7 @@ else if (s_fd == -1)
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
 	exit(99);
 }
+fchmod(s_fd, 0664);
 while (buffer[char_count] != '\0')
 	char_count++;
 write_count = write(s_fd, buffer, char_count);
