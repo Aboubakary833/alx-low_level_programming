@@ -13,45 +13,56 @@
  */
 int main(int argc, char *argv[])
 {
-int f_fd, s_fd;
-char *from, *to;
+int f_fd, s_fd, char_count, write_count;
+char *buffer;
 if (argc != 3)
 {
 	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 	exit(97);
 }
-from = argv[1];
-to = argv[2];
-f_fd = open(from, O_RDONLY);
-s_fd = open(to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
+f_fd = open(argv[1], O_RDONLY);
+s_fd = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 if (f_fd == -1)
 {
-	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 	exit(98);
 }
 else if (s_fd == -1)
 {
-	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 	exit(99);
 }
-write_from_to(&f_fd, &s_fd, from, to);
-close_fd(&f_fd);
+while (read(f_fd, buffer, sizeof(char) * 1024) > 0)
+{
+char_count = 0;
+while (buffer[char_count] != '\0')
+	char_count++;
+write_count = write(s_fd, buffer, char_count);
+if (write_count == -1)
+{
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+	exit(99);
+}
+}
+close_fd(f_fd);
 return (0);
 }
+
 /**
  * close_fd - Close file
  * @f_fd: File description
  * Return: void
  */
-void close_fd(int *f_fd)
+void close_fd(int f_fd)
 {
-int fd_close_status = close(*f_fd);
+int fd_close_status = close(f_fd);
 if (fd_close_status == -1)
 {
-	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", (*f_fd));
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f_fd);
 	exit(100);
 }
 }
+
 /**
  * create_buffer - Create a buffer
  * @filename: File to read
@@ -66,30 +77,4 @@ if (buffer == NULL)
 	exit(98);
 }
 return (buffer);
-}
-/**
- * write_from_to - Write in the output file
- * @f_fd: First file descriptor
- * @s_fd: Second file descriptor
- * @from_filename: Name of the first file
- * @to_filename: Name of the second file
- * Return: void
-*/
-void write_from_to(int *f_fd, int *s_fd, char *from_filename, char *to_filename)
-{
-int count, write_count;
-char *buffer = create_buffer(from_filename);
-while (read(f_fd, buffer, sizeof(char) * 1024) > 0)
-{
-count = 0;
-while (buffer[count] != '\0')
-	count++;
-write_count = write(*s_fd, buffer, count);
-if (write_count == -1)
-{
-	free(buffer);
-	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to_filename);
-	exit(99);
-}
-}
 }
