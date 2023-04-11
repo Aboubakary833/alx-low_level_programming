@@ -13,7 +13,7 @@
  */
 int main(int argc, char *argv[])
 {
-int f_fd, s_fd, char_count, write_count;
+int f_fd, s_fd, char_count, write_count, read_count;
 char *buffer = create_buffer(argv[1]);
 if (argc != 3)
 {
@@ -32,13 +32,13 @@ else if (s_fd == -1)
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 	exit(99);
 }
-while (read(f_fd, buffer, sizeof(char) * 1024) > 0)
+while ((read_count = read(f_fd, buffer, 1024)) > 0)
 {
 char_count = 0;
 while (buffer[char_count] != '\0')
 	char_count++;
-write_count = write(s_fd, buffer, char_count);
-if (write_count == -1)
+write_count = write(s_fd, buffer, char_count * sizeof(char));
+if (write_count == -1 || write_count != read_count)
 {
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 	exit(99);
