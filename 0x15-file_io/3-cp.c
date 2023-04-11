@@ -26,7 +26,7 @@ f_fd = open(from, O_RDONLY);
 s_fd = open(to, O_RDWR | O_TRUNC);
 read_count = read(f_fd, buffer, 1024);
 if (s_fd == -1)
-	s_fd = open(to, O_WRONLY | O_TRUNC | O_CREAT, 664);
+	s_fd = open(to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
 if (f_fd == -1 || read_count == -1)
 {
 	free(buffer);
@@ -42,7 +42,7 @@ else if (s_fd == -1)
 while (buffer[char_count] != '\0')
 	char_count++;
 write_count = write(s_fd, buffer, char_count);
-if (write_count == -1 || read_count != write_count)
+if (write_count == -1)
 {
 	free(buffer);
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
