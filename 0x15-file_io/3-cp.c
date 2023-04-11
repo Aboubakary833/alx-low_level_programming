@@ -13,38 +13,45 @@
  */
 int main(int argc, char *argv[])
 {
-int f_fd, s_fd, char_count, write_count, read_count;
-char *buffer = create_buffer(argv[1]);
+int first_fd, last_fd, read_count, write_count;
+char *buffer, *from, *to;
 if (argc != 3)
 {
 	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 	exit(97);
 }
-f_fd = open(argv[1], O_RDONLY);
-s_fd = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
-if (f_fd == -1)
+from = argv[1];
+to = argv[2];
+buffer = create_buffer(from);
+first_fd = open(from, O_RDONLY);
+last_fd = open(to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
+read_count = read(first_fd, buffer, 1024);
+if (first_fd == -1 || read_count == -1)
 {
-	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+	free(buffer);
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
 	exit(98);
 }
-else if (s_fd == -1)
+else if (last_fd == -1)
 {
-	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+	free(buffer);
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
 	exit(99);
 }
-while ((read_count = read(f_fd, buffer, 1024)) > 0)
+while (read_count > 0)
 {
-char_count = 0;
-while (buffer[char_count] != '\0')
-	char_count++;
-write_count = write(s_fd, buffer, char_count);
-if (write_count == -1 || write_count != read_count)
-{
-	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-	exit(99);
+	write_count = write(last_fd, buffer, read_count);
+	if (write_count == -1)
+	{
+		free(buffer);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
+		exit(99);
+	}
+	read_count = read(first_fd, buffer, 1024);
 }
-}
-close_fd(f_fd);
+free(buffer);
+close_fd(first_fd);
+close_fd(last_fd);
 return (0);
 }
 
@@ -64,17 +71,17 @@ if (fd_close_status == -1)
 }
 
 /**
- * create_buffer - Create a buffer
- * @filename: File to read
- * Return: a char-pointer buffer
+ * create_buffer - Create a char buffer
+ * @filename: First filename
+ * Return: char-pointer
  */
 char *create_buffer(char *filename)
 {
 char *buffer = malloc(sizeof(char) * 1024);
-if (buffer == NULL)
+if (!buffer)
 {
-	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
-	exit(98);
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+	exit(99);
 }
 return (buffer);
 }
