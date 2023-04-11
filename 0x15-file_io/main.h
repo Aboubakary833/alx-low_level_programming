@@ -6,7 +6,8 @@ int _putchar(char c);
 ssize_t read_textfile(const char *filename, size_t letters);
 int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
-void close_fd(int f_fd);
+void close_fd(int *f_fd);
 char *create_buffer(char *file);
+void write_from_to(int *f_fd, int *to_fd, char *from_filename, char *to_filename);
 
 #endif
