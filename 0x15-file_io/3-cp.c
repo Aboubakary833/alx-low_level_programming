@@ -37,7 +37,7 @@ while ((read_count = read(f_fd, buffer, 1024)) > 0)
 char_count = 0;
 while (buffer[char_count] != '\0')
 	char_count++;
-write_count = write(s_fd, buffer, char_count * sizeof(char));
+write_count = write(s_fd, buffer, char_count);
 if (write_count == -1 || write_count != read_count)
 {
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
