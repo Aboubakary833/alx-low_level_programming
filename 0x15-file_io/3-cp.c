@@ -23,7 +23,7 @@ from = argv[1];
 to = argv[2];
 buffer = create_buffer(from);
 f_fd = open(from, O_RDONLY);
-s_fd = open(to, O_RDWR | O_TRUNC);
+s_fd = open(to, O_WRONLY | O_TRUNC);
 read_count = read(f_fd, buffer, 1024);
 if (s_fd == -1)
 	s_fd = creat(to, 0664);
