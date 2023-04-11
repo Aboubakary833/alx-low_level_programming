@@ -14,7 +14,7 @@
 int main(int argc, char *argv[])
 {
 int f_fd, s_fd, char_count, write_count;
-char *buffer;
+char *buffer = create_buffer(argv[1]);
 if (argc != 3)
 {
 	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
