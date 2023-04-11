@@ -29,19 +29,22 @@ if (s_fd == -1)
 	s_fd = open(to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
 if (f_fd == -1 || read_count == -1)
 {
+	free(buffer);
 	dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", from);
 	exit(98);
 }
 else if (s_fd == -1)
 {
+	free(buffer);
 	dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", to);
 	exit(99);
 }
 while (buffer[char_count] != '\0')
 	char_count++;
 write_count = write(s_fd, buffer, char_count);
-if (write_count == -1)
+if (write_count == -1 || read_count != write_count)
 {
+	free(buffer);
 	dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", to);
 	exit(99);
 }
