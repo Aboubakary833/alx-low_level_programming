@@ -28,5 +28,5 @@ else
 	}
 	prev_node->next = new;
 }
-return (new);
+return ((*head));
 }
