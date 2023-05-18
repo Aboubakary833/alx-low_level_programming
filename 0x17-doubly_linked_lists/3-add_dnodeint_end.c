@@ -16,18 +16,16 @@ new->n = n;
 new->next = NULL;
 if ((*head) == NULL)
 {
+	new->prev = NULL;
 	(*head) = new;
-	(*head)->prev = NULL;
 	return (*head);
 }
-else
+prev_node = (*head);
+while (prev_node->next != NULL)
 {
-	prev_node = (*head);
-	while (prev_node->next != NULL)
-	{
-		prev_node = prev_node->next;
-	}
-	prev_node->next = new;
+	prev_node = prev_node->next;
 }
+prev_node->next = new;
+new->prev = prev_node;
 return (new);
 }
