@@ -18,6 +18,7 @@ if ((*head) == NULL)
 {
 	(*head) = new;
 	(*head)->prev = NULL;
+	return (*head);
 }
 else
 {
@@ -28,5 +29,5 @@ else
 	}
 	prev_node->next = new;
 }
-return ((*head));
+return (new);
 }
