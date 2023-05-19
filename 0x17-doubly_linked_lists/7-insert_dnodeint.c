@@ -5,11 +5,14 @@
  * @h: dlistint head
  * @idx: The index
  * @n: The value of the node
+ * Return: The new node
 */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 dlistint_t *new, *copy;
 unsigned int i = 0, len = 0;
+if (*h == NULL)
+	return (NULL);
 if (idx == 0)
 	return (add_dnodeint(h, n));
 copy = (*h);
@@ -31,12 +34,16 @@ while (copy != NULL)
 	if (idx == i)
 	{
 		new->prev = copy->prev;
-		new->next = copy;
-		*h = new;
+		new->next = copy->next;
+		copy->next = new;
 	}
 	copy = copy->next;
 	i++;
 }
-
+if (idx > i)
+{
+	free(new);
+	return (NULL);
+}
 return (new);
 }
