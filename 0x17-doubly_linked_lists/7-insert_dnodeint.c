@@ -30,10 +30,10 @@ if (new == NULL)
 new->n = n;
 while (copy != NULL)
 {
-	if (i == idx - 1)
+	if ((i + 1) == idx)
 	{
-		new->prev = copy->prev;
 		new->next = copy->next;
+		new->prev = copy;
 		copy->next = new;
 		return (new);
 	}
