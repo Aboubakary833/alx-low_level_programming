@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * delete_dnodeint_at_index - Delete a given node
  * @head: Double linked list head
@@ -9,20 +8,42 @@
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 dlistint_t *copy, *temp;
-unsigned int i = 0;
+unsigned int i = 1;
 copy = (*head);
-if (index == 0 && (*head))
+if (copy != NULL)
 {
-	temp = (*head)->next;
-	temp->prev = NULL;
-	copy = temp;
+	while (copy->prev != NULL)
+		copy = copy->prev;
 }
-else if ((*head) == NULL)
-	return (-1);
-
+if (copy == NULL)
+	(*head) = NULL;
+else if (index == 0)
+{
+	temp = (*head);
+	(*head) = (*head)->next;
+	free(temp);
+	if ((*head) != NULL)
+		(*head)->prev = NULL;
+	return (1);
+}
 while (copy)
 {
-	
+	if (index == i - 1)
+	{
+		temp = copy->prev;
+		if (temp)
+			temp->next = copy->next;
+		else
+		{
+			temp = copy->next;
+			temp->prev = NULL;
+		}
+		free(copy);
+		copy = temp;
+		return (1);
+	}
+	i++;
+	copy = copy->next;
 }
-
+return (-1);
 }
