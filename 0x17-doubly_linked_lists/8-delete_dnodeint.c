@@ -26,21 +26,24 @@ else if (index == 0)
 		(*head)->prev = NULL;
 	return (1);
 }
-for (; i < (index + 1); i++)
-	copy = copy->next;
-if (index == i - 1)
+while (copy)
+{
+	if (index == i - 1)
 	{
-	temp = copy->prev;
-	if (temp)
-		temp->next = copy->next;
-	else
-	{
-		temp = copy->next;
-		temp->prev = copy->prev;
+		temp = copy->prev;
+		if (temp)
+			temp->next = copy->next;
+		else
+		{
+			temp = copy->next;
+			temp->prev = copy->prev;
+		}
+		free(copy);
+		copy = temp;
+		return (1);
 	}
-	free(copy);
-	copy = temp;
-	return (1);
+	i++;
+	copy = copy->next;
 }
 return (-1);
 }
