@@ -28,15 +28,16 @@ if (new == NULL)
 new->n = n;
 while (copy != NULL)
 {
-	if ((idx - 1) == i)
+	if ((i + 1) == idx)
 	{
-		new->prev = copy->prev;
 		new->next = copy->next;
+		new->prev = copy;
 		copy->next = new;
 		return (new);
 	}
 	copy = copy->next;
 	i++;
 }
+free(new);
 return (NULL);
 }
