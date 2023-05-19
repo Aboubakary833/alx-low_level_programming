@@ -40,7 +40,7 @@ while (copy != NULL)
 	copy = copy->next;
 	i++;
 }
-if (idx > i)
+if ((idx - 1) > i)
 {
 	free(new);
 	return (NULL);
