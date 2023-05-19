@@ -19,12 +19,13 @@ new = add_dnodeint(h, n);
 else
 {
 copy = *h;
+i = 1;
 if (copy != NULL)
 while (copy->prev != NULL)
 	copy = copy->prev;
 while (copy != NULL)
 {
-if ((i + 1) == idx)
+if (i == idx)
 {
 	if (copy->next == NULL)
 		new = add_dnodeint_end(h, n);
