@@ -19,9 +19,9 @@ if (copy == NULL)
 	return (-1);
 else if (index == 0)
 {
-	temp = (*head);
-	(*head) = (*head)->next;
-	free(temp);
+	temp = (*head)->next;
+	free((*head));
+	(*head) = temp;
 	if ((*head) != NULL)
 		(*head)->prev = NULL;
 	return (1);
