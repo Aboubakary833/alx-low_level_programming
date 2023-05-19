@@ -39,6 +39,7 @@ while (copy != NULL)
 		new->next = copy->next;
 		new->prev = copy;
 		copy->next->prev = new;
+		copy->next = new;
 		return (new);
 	}
 	copy = copy->next;
