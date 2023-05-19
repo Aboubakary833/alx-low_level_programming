@@ -16,10 +16,7 @@ if (copy != NULL)
 		copy = copy->prev;
 }
 if (copy == NULL)
-{
-	(*head) = NULL;
 	return (-1);
-}
 else if (index == 0)
 {
 	temp = (*head);
