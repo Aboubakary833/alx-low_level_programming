@@ -13,7 +13,7 @@ copy = (*head);
 if (copy == NULL)
 	return (-1);
 while (copy->prev != NULL)
-		copy = copy->prev;
+	copy = copy->prev;
 if (index == 0)
 {
 	temp = (*head)->next;
