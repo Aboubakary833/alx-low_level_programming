@@ -19,7 +19,7 @@ while (copy)
 	len++;
 	copy = copy->next;
 }
-if (idx == (len - 1) || idx == len)
+if (idx == len)
 	return (add_dnodeint_end(h, n));
 else if (idx > len)
 	return (NULL);
