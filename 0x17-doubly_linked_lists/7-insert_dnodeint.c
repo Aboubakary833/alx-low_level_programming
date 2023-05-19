@@ -33,13 +33,14 @@ while (copy != NULL)
 	if ((i + 1) == idx)
 	{
 		new = malloc(sizeof(dlistint_t));
-		if (new == NULL)
-			return (NULL);
-		new->n = n;
-		new->next = copy->next;
-		new->prev = copy;
-		copy->next->prev = new;
-		copy->next = new;
+		if (new != NULL)
+		{
+			new->n = n;
+			new->next = copy->next;
+			new->prev = copy;
+			copy->next->prev = new;
+			copy->next = new;
+		}
 		break;
 	}
 	copy = copy->next;
