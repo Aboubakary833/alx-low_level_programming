@@ -17,6 +17,10 @@ new = NULL;
 if (idx == 0)
 	new = add_dnodeint(h, n);
 copy = *h;
+i = 1;
+if (copy != NULL)
+	while (copy->prev != NULL)
+		copy = copy->prev;
 while (copy != NULL)
 {
 	if (i == idx)
