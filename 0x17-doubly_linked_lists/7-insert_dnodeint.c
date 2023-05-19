@@ -31,7 +31,7 @@ if (new == NULL)
 new->n = n;
 while (copy != NULL)
 {
-	if (idx == i)
+	if ((idx - 1) == i)
 	{
 		new->prev = copy->prev;
 		new->next = copy->next;
