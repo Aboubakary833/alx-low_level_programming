@@ -28,17 +28,18 @@ else if (index == 0)
 }
 while (copy)
 {
-	if (index == i - 1)
+	if (index == i)
 	{
-		temp = copy->prev;
-		if (temp)
-			temp->next = copy->next;
-		else
+		if (copy->next)
 		{
 			temp = copy->next;
-			temp->prev = NULL;
+			temp->prev = copy->prev;
 		}
-		free(copy);
+		else
+		{
+			temp = copy->prev;
+			temp->next = NULL;
+		}
 		copy = temp;
 		return (1);
 	}
