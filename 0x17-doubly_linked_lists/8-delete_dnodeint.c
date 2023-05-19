@@ -16,8 +16,9 @@ while (copy)
 	if (i == index)
 	{
 		temp = copy->prev;
-		copy = copy->next;
-		copy->prev = temp;
+		temp->next = copy->next;
+		free(copy);
+		copy = temp;
 		return (1);
 	}
 }
