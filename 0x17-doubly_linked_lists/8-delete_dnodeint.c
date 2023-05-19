@@ -17,20 +17,17 @@ if (copy != NULL)
 }
 if (copy == NULL)
 	return (-1);
-
+else if (index == 0)
+{
+	temp = (*head)->next;
+	free((*head));
+	(*head) = temp;
+	return (1);
+}
 while (copy)
 {
 	if (index == i - 1)
 	{
-		if (index == 0)
-		{
-			temp = (*head)->next;
-			free((*head));
-			(*head) = temp;
-			if ((*head) != NULL)
-				(*head)->prev = NULL;
-			return (1);
-		}
 		temp = copy->prev;
 		if (temp)
 			temp->next = copy->next;
