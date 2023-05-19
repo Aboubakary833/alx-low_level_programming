@@ -13,7 +13,7 @@ copy = (*head);
 if (copy == NULL)
 	return (-1);
 while (copy->prev != NULL)
-	copy = copy->prev;
+		copy = copy->prev;
 if (index == 0)
 {
 	temp = (*head)->next;
@@ -23,22 +23,24 @@ if (index == 0)
 		(*head)->prev = NULL;
 	return (1);
 }
-while (copy && i++)
+while (copy)
+{
+	if (index == i - 1)
+	{
+		temp = copy->prev;
+		if (temp)
+			temp->next = copy->next;
+		else
+		{
+			temp = copy->next;
+			temp->prev = copy->prev;
+		}
+		free(copy);
+		copy = temp;
+		return (1);
+	}
+	i++;
 	copy = copy->next;
-if (!copy)
-	return (-1);
-else if (copy->prev && copy->next)
-{
-	copy->next->prev = copy->prev;
-	copy->prev->next = copy->next;
-	free(copy);
 }
-else if (!copy->next)
-{
-	copy->prev->next = NULL;
-	free(copy);
-}
-
-return (1);
-
+return (-1);
 }
