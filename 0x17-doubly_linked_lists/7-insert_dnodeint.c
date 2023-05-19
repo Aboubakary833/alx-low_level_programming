@@ -21,7 +21,13 @@ while (copy)
 }
 if (idx == len)
 	return (add_dnodeint_end(h, n));
+else if (idx > len)
+	return (NULL);
 copy = (*h);
+if (copy != NULL)
+	while (copy->prev != NULL)
+		copy = copy->prev;
+i = 1;
 while (copy != NULL)
 {
 	if ((i + 1) == idx)
@@ -32,7 +38,7 @@ while (copy != NULL)
 		new->n = n;
 		new->next = copy->next;
 		new->prev = copy;
-		copy->next = new;
+		copy->next->prev = new;
 		return (new);
 	}
 	copy = copy->next;
