@@ -33,14 +33,10 @@ while (copy != NULL)
 		new->prev = copy->prev;
 		new->next = copy->next;
 		copy->next = new;
+		return (new);
 	}
 	copy = copy->next;
 	i++;
 }
-if ((idx - 1) > i)
-{
-	free(new);
-	return (NULL);
-}
-return (new);
+return (NULL);
 }
