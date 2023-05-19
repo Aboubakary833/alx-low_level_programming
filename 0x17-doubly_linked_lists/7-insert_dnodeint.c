@@ -40,10 +40,10 @@ while (copy != NULL)
 		new->prev = copy;
 		copy->next->prev = new;
 		copy->next = new;
-		return (new);
+		break;
 	}
 	copy = copy->next;
 	i++;
 }
-	return (NULL);
+	return (new);
 }
