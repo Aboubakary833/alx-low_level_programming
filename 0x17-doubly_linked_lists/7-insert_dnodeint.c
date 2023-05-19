@@ -21,6 +21,8 @@ while (copy)
 }
 if (idx == len - 1)
 	return (add_dnodeint_end(h, n));
+else if (idx >= len)
+	return (NULL);
 copy = (*h);
 new = malloc(sizeof(dlistint_t));
 if (new == NULL)
