@@ -22,6 +22,8 @@ else if (index == 0)
 	temp = (*head)->next;
 	free((*head));
 	(*head) = temp;
+	if ((*head) == NULL)
+		(*head)->prev = NULL;
 	return (1);
 }
 while (copy)
