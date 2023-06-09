@@ -1,3 +1,5 @@
+#include "hash_tables.h"
+
 /**
  * key_index - Generate index for a key/value pair hash node
  * @key: Key
