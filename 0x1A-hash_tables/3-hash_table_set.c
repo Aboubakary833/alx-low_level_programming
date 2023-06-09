@@ -14,7 +14,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 hash_node_t *newNode;
 unsigned long int i, idx;
 char *cpy;
-if (ht == NULL || key == NULL || strcmp(key, "") || value == NULL)
+if (ht == NULL || *key == '\0' || value == NULL)
 	return (0);
 cpy = strdup(value);
 	if (cpy == NULL)
