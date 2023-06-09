@@ -13,8 +13,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 hash_node_t *newNode;
 unsigned long int i, idx;
+char *cpy;
 if (ht == NULL || key == NULL || strcmp(key, "") || value == NULL)
 	return (0);
+cpy = strdup(value);
+	if (cpy == NULL)
+		return (0);
 idx = key_index((const unsigned char *)key, ht->size);
 for (i = idx; ht->array[i]; i++)
 {
@@ -27,10 +31,14 @@ for (i = idx; ht->array[i]; i++)
 }
 newNode = malloc(sizeof(hash_node_t));
 if (!newNode)
+{
+	free(cpy);
 	return (0);
+}
 newNode->key = strdup(key);
 if (newNode->key == NULL)
 {
+	free(cpy);
 	free(newNode);
 	return (0);
 }
