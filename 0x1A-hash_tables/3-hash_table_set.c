@@ -38,7 +38,6 @@ if (!newNode)
 newNode->key = strdup(key);
 if (newNode->key == NULL)
 {
-	free(cpy);
 	free(newNode);
 	return (0);
 }
