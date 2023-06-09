@@ -21,20 +21,20 @@ for (i = idx; ht->array[i]; i++)
 	if (strcmp(ht->array[i]->key, key) == 0)
 	{
 		free(ht->array[i]->value);
-		ht->array[i]->value = (char *)value;
+		ht->array[i]->value = strdup(value);
 		return (1);
 	}
 }
 newNode = malloc(sizeof(hash_node_t));
 if (!newNode)
 	return (0);
-newNode->key = (char *)key;
+newNode->key = strdup(key);
 if (newNode->key == NULL)
 {
 	free(newNode);
 	return (0);
 }
-newNode->value = (char *)value;
+newNode->value = strdup(value);
 newNode->next = ht->array[idx];
 ht->array[idx] = newNode;
 
